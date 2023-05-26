@@ -1,0 +1,115 @@
+#menu_panel {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: 3px solid #f1f1f1;
+    /* border-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0;
+    padding-top: 1%;
+    /* padding-left: 1%; */
+    transition: 0.6s;
+    background-color: white;
+    z-index: 9999;
+}
+
+#overlay {
+    z-index: 9998;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#overlay2 {
+    z-index: 9998;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#menu_panel a {
+    padding: 3%;
+    padding-right: 1%;
+    text-decoration: none;
+    cursor: pointer;
+    color: #666666;
+    font-size: 120%;
+    display: block;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+#menu_burger {
+    top: 0;
+    left: 0;
+    position: fixed;
+    margin: 1%;
+    display: none;
+    transition: 0.6s;
+    width: min-content;
+}
+
+svg {
+    color: black;
+}
+
+@media screen and (max-width: 1105px) {
+    #menu_panel {
+        padding-left: 0;
+        /* display: none; */
+        visibility: collapse;
+        overflow: hidden;
+        padding-right: 0;
+        border: none;
+        transition: none;
+    }
+
+        #menu_panel a {
+            font-size: 110%;
+        }
+
+    #menu_burger {
+        display: block;
+    }
+
+    #closeMenu {
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    #menu_panel {
+        padding-left: 1%;
+    }
+
+        #menu_panel a {
+            font-size: 120%;
+        }
+}
+
+#menu_panel p {
+    font-family: Arial, Helvetica;
+}
+
+#menu_panel a:hover {
+    background-color: lightgrey;
+    border-radius: 5px;
+    /* border-bottom-right-radius: 5px; */
+}
+
+#closeMenu {
+    margin-left: 90%;
+    margin-bottom: 4%;
+    cursor: pointer;
+    visibility: hidden;
+    color: darkgray;
+}

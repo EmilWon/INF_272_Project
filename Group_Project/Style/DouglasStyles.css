@@ -1,0 +1,62 @@
+
+.baseStyle
+{
+    border: none;
+    margin-top:0;
+}
+
+.burger
+{
+    cursor: pointer;
+    font-size: 230%;
+}
+
+.menuLink
+{
+    display: inline;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+.contentBox
+{
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    margin-top:0;
+}
+
+
+.contentBox2
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top:0;
+    width: 80%;
+    padding: 12px;
+}
+
+.contentBox2 option
+{
+    padding: 5px;
+}
+
+.scrollbar
+{
+    position: relative;
+    height: auto;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.tblScroll
+{
+    display: block;
+}
+
+.rotate
+{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

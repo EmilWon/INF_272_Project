@@ -1,0 +1,1089 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+<link rel="stylesheet" href="~/Style/menu_style.css" />
+<link rel="stylesheet" href="~/Style/Style.css" />
+
+<!-- Div with main content -->
+<div class="row justify-content-center" style="margin-bottom: 3%;">
+
+    <!-- Main Content inside this div -->
+    <div class="col-10">
+        <!--News-->
+        <fieldset id="newsLbl" style="background-color: #fbfbfb;border: 1px solid #c4c4c4; padding:1%;padding-top:0;">
+            <legend><i>Eco-Impact News</i></legend>
+            <div style="overflow-x: scroll;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Article Source</th>
+                            <th colspan="2">Options</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><img src="~/Img/article2.png" style="width:100px;height:55px" /></td>
+                            <td>We must reduce greenhouse gas emissions to net zero or face more floods - <i style="color:orangered">Nicholas Stern</i></td>
+                            <td><u><a href="https://www.theguardian.com/environment/2018/oct/08/we-must-reduce-greenhouse-gas-emissions-to-net-zero-or-face-more-floods">https://www.theguardian.com/environment/2018/oct/08/we-must-reduce-greenhouse-gas-emissions-to-net-zero-or-face-more-floods</a></u></td>
+                            <td><img data-toggle="modal" data-target="#NewsEdit" src="~/Images/Admin/Edit.png" style="width:30px;height:30px" /></td>
+                            <td><img data-toggle="modal" data-target="#DeleteModal" src="~/Images/Admin/Delete.png" style="width:30px;height:30px" /></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+
+            <button type="button" id="btnShowModal" data-toggle="modal" data-target="#NewsAdd" style="background-color: #A3E2FF; color: black;">Add News Item</button>
+
+        </fieldset>
+        <br><br />
+
+        <!--User survey-->
+        <fieldset id="surveyLbl" style="background-color: #fbfbfb;border: 1px solid #c4c4c4; padding:1%; padding-top:0">
+            <legend><i>User Survey</i></legend>
+            <table class="text-left offset-1" style="width:85%">
+                <tbody>
+                    <tr>
+                        <td width="86%"><b>My household uses a solar geyser</b></td>
+                        <td width="6%" style="padding-bottom:10px"><img data-toggle="modal" data-target="#SurveyEdit" src="~/Images/Admin/Edit.png" style="width:30px;height:30px" /></td>
+                        <td width="7%" style="padding-bottom:10px"><img data-toggle="modal" data-target="#DeleteModal" alt="Delete" src="~/Images/Admin/Delete.png" style="width:30px;height:30px" /></td>
+                    </tr>
+                    <tr>
+                        <td><b>My household uses LED lightbulbs</b></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#SurveyEdit" src="~/Images/Admin/Edit.png" style="width:30px;height:30px" /></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#DeleteModal" alt="Delete" src="~/Images/Admin/Delete.png" style="width:30px;height:30px" /></td>
+                    </tr>
+                    <tr>
+                        <td><b>My household maintains a compost heap</b></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#SurveyEdit" src="~/Images/Admin/Edit.png" style="width:30px;height:30px" /></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#DeleteModal" alt="Delete" src="~/Images/Admin/Delete.png" style="width:30px;height:30px" /></td>
+                    </tr>
+                    <tr>
+                        <td><b>My household has a vegetable garden</b></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#SurveyEdit" src="~/Images/Admin/Edit.png" style="width:30px;height:30px" /></td>
+                        <td style="padding-bottom:10px"><img data-toggle="modal" data-target="#DeleteModal" alt="Delete" src="~/Images/Admin/Delete.png" style="width:30px;height:30px" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" id="btnShowModal" data-toggle="modal" data-target="#SurveyAdd" style="background-color: #A3E2FF; color: black;">Add Question</button>
+        </fieldset>
+        <br /><br />
+
+        <!-- Tips table -->
+        <div class="col-12" style="opacity:0.9; padding:0">
+            <fieldset id="tipsLbl" style="background-color: #fbfbfb;border: 1px solid #c4c4c4; padding:2%;">
+                <legend><i>Eco-Impact Tips</i></legend>
+
+                <!-- accordion-->
+                <div class="accordion text-left" id="accordionTips">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Electricity
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionTips">
+                            <div class="card-body px-3">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Turn off your pool pump at night
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Took the stairs instead of the elevator
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Recycling
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionTips">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Choose to use Beeswax wrapping instead of plastic
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Use a metal straw instead of a plastic straw
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Avoided purchase of plastic-wrapped food from restaurant
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Travel
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionTips">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Use public transport if you will not have more than 3 people in your vehicle
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Water
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionTips">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Check for and replace leaking tap fixtures
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Food and Nutrition
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionTips">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Compost leftover fruit, vegetables and other organic kitchen waste
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <button type="button" id="btnShowModal" data-toggle="modal" data-target="#AddCategory" style="background-color: #A3E2FF; color: black;">Add Category</button>
+            </fieldset>
+        </div>
+        <br />
+        <br />
+
+        <!--Activities Table-->
+        <div class="col-12" style="opacity:0.9; width:70% ; width: 100%; padding:0">
+            <fieldset id="activitiesLbl" style="background-color: #fbfbfb; border: 1px solid #c4c4c4; padding:2%">
+                <legend><i>Daily Activities</i></legend>
+
+                <!-- accordion-->
+                <div class="accordion text-left" id="accordionActivities">
+                    <div class="card">
+                        <div class="card-header" id="heading1">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Electricity
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionActivities">
+                            <div class="card-body px-3">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Unplugged Idle Appliances
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Took the stairs instead of the elevator
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading2">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Recycling
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionActivities">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Chose to use Beeswax wrapping instead of plastic cellophane
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Used a metal straw instead of a plastic straw
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Avoided purchase of plastic-wrapped food from restaurant
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading3">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Travel
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionActivities">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Used public transport
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading4">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Water
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionActivities">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Replaced leaking tap fixtures
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading5">
+                            <h4 class="mb-0">
+                                <span>
+                                    <a data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5" style="color:black;">
+                                        <span class="glyphicon glyphicon-menu-up"></span>
+                                        Food and Nutrition
+                                    </a>
+                                    <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditCategory" alt="EditTip" style="width: 30px;height: 30px; position: relative;float: right; margin: 5px; ">
+                                    <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;position: relative; float:right; margin: 5px; ">
+                                    <img src="~/Images/Admin/AddItem.png" alt="AddTip" data-toggle="modal" data-target="#AddTip" style="width: 30px;height: 30px; position: relative; float: right;margin: 5px; ">
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionActivities">
+                            <div class="card-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                Composted leftover fruit, vegetables and other organic kitchen waste
+                                            </h4>
+                                        </td>
+                                        <td>
+                                            <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditTip" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                            <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <button type="button" id="btnShowModal" data-toggle="modal" data-target="#AddActivityCategory" style="background-color: #A3E2FF; color: black;">Add Category</button>
+
+            </fieldset>
+        </div>
+        <br />
+        <br />
+
+        <!-- Images-->
+        <div class="col-12" style="opacity:0.9; padding: 0;">
+            <fieldset id="carouselLbl" style="background-color: #fbfbfb;border: 1px solid #c4c4c4; padding: 2%;">
+
+                <legend><i>Carousel Images</i></legend>
+
+                <table class="table" width="100%" style="font-size:medium;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">
+                                <br />
+                                1
+                            </td>
+                            <td>
+                                <img src="~/Img/img1.jpg" alt="TestImage1" style="width: 100px;height: 50px;" />
+                            </td>
+                            <td>
+                                <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditImage" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;">
+                                <br />
+                                2
+                            </td>
+                            <td>
+                                <img src="~/Img/img3.jpg" alt="TestImage1" style="width: 100px;height: 50px;" />
+                            </td>
+                            <td>
+                                <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditImage" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;">
+                                <br />
+                                3
+                            </td>
+                            <td>
+                                <img src="~/Img/article1.jpg" alt="TestImage1" style="width: 100px;height: 50px;" />
+                            </td>
+                            <td>
+                                <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditImage" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;">
+                                <br />
+                                4
+                            </td>
+                            <td>
+                                <img src="~/Img/article2.png" alt="TestImage1" style="width: 100px;height: 50px;" />
+                            </td>
+                            <td>
+                                <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditImage" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;">
+                                <br />
+                                5
+                            </td>
+                            <td>
+                                <img src="~/Img/article3.jpg" alt="TestImage1" style="width: 100px;height: 50px;" />
+                            </td>
+                            <td>
+                                <img src="~/Images/Admin/Edit.png" data-toggle="modal" data-target="#EditImage" alt="EditTip" style="width: 30px;height: 30px;  float: right;margin: 5px;">
+                                <img src="~/Images/Admin/Delete.png" class="delete-category" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px; float: right;margin: 5px;">
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <button type="button" id="btnShowModal" data-toggle="modal" data-target="#AddImage" style=" background-color: #A3E2FF; color: black;">Add Image</button>
+            </fieldset>
+        </div>
+        <br />
+        <br />
+
+        <!-- Settings -->
+        <div class="col-12" style="opacity:0.9; padding: 0;">
+            <fieldset id="settingsLbl" style="background-color: #fbfbfb;border: 1px solid #c4c4c4">
+                <legend><i>Settings</i></legend>
+
+                <table class="table" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px; width:97%;">
+                    <thead>
+                        <tr>
+                            <th style="font-size: small; color: dimgrey;">
+                                <i>Authorisations</i>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px; width:97%;">
+                    <thead>
+                        <tr>
+                            <td style="font-size:large; font-weight:bold;">
+                                Current Admin Subsidiaries
+                            </td>
+                            <td></td>
+                            <td>
+                                <button type="button" id="btnShowModal" data-toggle="modal" data-target="#AddAdmin" width="22" height="8" style=" background-color: #A3E2FF; color: black;float: right;border:none; padding: 6px; left: 620px;">Add Admin</button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>username1</i>
+                            </td>
+                            <td>
+                                <i>email@address1.com</i>
+                            </td>
+                            <td></td>
+                            <td>
+                                <img src="~/Images/Admin/Delete.png" class="delete-image" data-toggle="modal" data-target="#DeleteModal" alt="Delete" style="width: 30px;height: 30px;" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+
+<!--Add News item modal-->
+<div class="modal fade" id="NewsAdd" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3>Add New Eco-Impact News Item<img src="~/Images/BackArrow.png" style="cursor: pointer;width:50px;height:22px; float:right;padding-left:25px" data-dismiss="modal" /></h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+                    <div class="form-group">
+                        <label for="imgField"><i>Image</i></label>
+                        <input type="file" accept="image/*" id="file-inp" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsDesField"><i>Description</i></label>
+                        <input type="text" class="form-control" id="newsDes" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sourceField"><i>Article Source</i></label>
+                        <input type="text" class="form-control" id="SourceField" required />
+                    </div>
+
+                </form>
+                <div class="modal-footer">
+                    <button type="submit" style="background-color: lightblue;border:none; float:right; padding:10px" data-dismiss="modal"><b>Add to News</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Survey item modal-->
+<div class="modal fade" id="SurveyAdd" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" />Add New User Survey Item</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="surQuesField"><i>Question</i></label>
+                        <input type="text" class="form-control" id="surQuesField" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="surPointField"><i>Point Allocation</i></label>
+                        <input type="text" class="form-control" id="surPointField" required />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="submit" style="background-color: lightblue; border: none; float: right; padding: 10px" data-dismiss="modal"><b>Add to User Survey</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Tip Category Modal-->
+<div class="modal fade" id="AddCategory" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    Add New Tip Category
+                    <a><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" /></a>
+                </h3>
+
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    @*<button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Category</b></button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Activity Category Modal-->
+<div class="modal fade" id="AddActivityCategory" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    Add New Activity Category
+                    <a><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" /></a>
+                </h3>
+
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    @*<button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Category</b></button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Tip item modal-->
+<div class="modal fade" id="AddTip" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" />Add New Tip Item</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Tip</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Activity item modal-->
+<div class="modal fade" id="AddActivity" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" />Add New Activity Item</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Tip</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Category modal-->
+<div class="modal fade" id="EditCategory" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" /> Edit Category</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Edit Category</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Activity modal-->
+<div class="modal fade" id="EditActivity" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" /> Edit Activity</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Edit Activity</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Tip modal-->
+<div class="modal fade" id="EditTip" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="width:50px; height:22px; float:left; padding-right:25px" /> Edit Tip</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Description: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Edit Tip</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit News modal-->
+<div class="modal fade" id="NewsEdit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3>Edit Eco-Impact News Item<img src="~/Images/BackArrow.png" style="cursor: pointer;width:50px;height:22px; float:right;padding-left:25px" data-dismiss="modal" /></h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+                    <div class="form-group">
+                        <label for="imgField"><i>Image</i></label>
+                        <input type="file" accept="image/*" id="file-inp" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsDesField"><i>Description</i></label>
+                        <input type="text" class="form-control" id="newsDes" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sourceField"><i>Article Source</i></label>
+                        <input type="text" class="form-control" id="SourceField" required />
+                    </div>
+
+                </form>
+                <div class="modal-footer">
+                    <button type="submit" style="background-color: lightblue;border:none; float:right; padding:10px" data-dismiss="modal"><b>Save News</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Survey item modal-->
+<div class="modal fade" id="SurveyEdit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img src="~/Images/BackArrow.png" data-dismiss="modal" style="cursor: pointer; width:50px;height:22px; float:right;padding-left:25px" />Edit User Survey Item</h3>
+            </div>
+
+            <div class="modal-body">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="surQuesField"><i>Question</i></label>
+                        <input type="text" class="form-control" id="surQuesField" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="surPointField"><i>Point Allocation</i></label>
+                        <input type="text" class="form-control" id="surPointField" required />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="submit" style="background-color: lightblue; border: none; float: right; padding: 10px" data-dismiss="modal"><b>Save</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete Category modal-->
+<div class="modal fade" id="DeleteModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3> Are you sure you want to delete this?</h3>
+            </div>
+
+            <div class="modal-footer">
+                <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Yes</b></button>
+                <button data-dismiss="modal" style="background-color: lightgrey; border: none; float: right; padding: 10px"><b>No</b></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Add Admin modal-->
+<div class="modal fade" id="AddAdmin" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <h3 style="text-align:center;"><img src="~/Images/BackArrow.png" data-dismiss="modal" style="width:50px;height:22px; float:left;padding-left:25px; transform: rotate(180deg);" />Add Admin</h3>
+            </div>
+
+            <div class="modal-body" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="desc">Username: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="desc">Email Address: </label>
+                        <input type="text" class="form-control" id="desc" name="desc" />
+                        <input type="number" name="id" value="" hidden />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Admin</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Image modal-->
+<div class="modal fade" id="AddImage" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <h3 style="text-align:center;"><img src="~/Images/BackArrow.png" data-dismiss="modal" style="width:50px;height:22px; float:left;padding-left:25px; transform: rotate(180deg);" />Add Carousel Image</h3>
+            </div>
+
+            <div class="modal-body" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="imgField"><i>Image</i></label>
+                        <input type="file" accept="image/*" id="file-inp" required />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Add Image</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete modal-->
+<div class="modal fade" id="DeleteModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <h3> Are you sure you want to delete this?</h3>
+            </div>
+
+            <div class="modal-footer">
+                <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Yes</b></button>
+                <button data-dismiss="modal" style="background-color: lightgrey; border: none; float: right; padding: 10px"><b>No</b></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Edit Carousel Image modal-->
+<div class="modal fade" id="EditImage" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <h3 style="text-align:center;"><img src="~/Images/BackArrow.png" data-dismiss="modal" style="width:50px;height:22px; float:left;padding-left:25px; transform: rotate(180deg);" />Edit Carousel Image</h3>
+            </div>
+
+            <div class="modal-body" style="margin-left: 15px; margin-top: 15px; padding: 5px 10px;">
+                <form role="form" style="padding-bottom: 20px;">
+
+                    <div class="form-group">
+                        <label for="imgField"><i>Image</i></label>
+                        <input type="file" accept="image/*" id="file-inp" required />
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" style="background-color: lightblue; border: none; float: right; padding: 10px"><b>Edit Image</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="~/Scripts/Admin_Menu.js"></script>
+<script src="~/Scripts/News.js"></script>
